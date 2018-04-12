@@ -1,0 +1,40 @@
+﻿@model ADOProject.ViewModels.RegisterViewModel
+@{
+    ViewBag.Title = "Create User";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.2.0.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.16.0/jquery.validate.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"></script>
+
+<h2>Register</h2>
+<div>
+    @using (Html.BeginForm("Index", "Register", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <fieldset>
+            <div>
+                @Html.LabelFor(u => u.Username)
+                @Html.EditorFor(u => u.Username)
+                @Html.ValidationMessageFor(u => u.Username)  
+            </div>
+            <div>
+                @Html.LabelFor(u => u.Email)
+                @Html.EditorFor(u => u.Email)
+                @Html.ValidationMessageFor(u => u.Email)
+            </div>
+            <div>
+                @Html.LabelFor(u => u.Password)
+                @Html.PasswordFor(u => u.Password)
+                @Html.ValidationMessageFor(u => u.Password)           
+            </div>
+            <div>
+                @Html.LabelFor(u => u.ValidatePassword)
+                @Html.PasswordFor(u => u.ValidatePassword)
+                @Html.ValidationMessageFor(u => u.ValidatePassword)
+            </div>
+            <input type="submit" value="Submit"/>
+        </fieldset>
+    }
+    @{Html.EndForm();}
+</div>
