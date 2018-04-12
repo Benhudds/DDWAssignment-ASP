@@ -5,6 +5,16 @@
 <div class="jumbotron text-center">
     <h1>Welcome to CarBay!</h1>
     <p>The place for buying and selling cars</p>
-    <p><a class="btn btn-primary btn-lg" href="/Login" role="button">Login</a> 
-    <a class="btn btn-success btn-lg" href="/Register" role="button">Register</a>
+    @if (Session["User"] == null)
+    {
+        <p><a class="btn btn-primary btn-lg" href="/Login" role="button">Login</a>
+            <a class="btn btn-success btn-lg" href="/Register" role="button">Register</a>
+        </p>
+    }
+    else
+    {
+        <p>
+            <a class="btn btn-primary btn-lg" href="/Posts/Create" role="button">Create Listing</a>
+        </p>   
+    }
 </div>

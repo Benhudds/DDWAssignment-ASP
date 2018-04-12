@@ -108,7 +108,7 @@ namespace ADOProject.Controllers
                 return HttpNotFound();
             }
 
-            if (Session["User"] == null || (((User)Session["User"]).Level != 2 || ((User)Session["User"]).Id != user.Id))
+            if (Session["User"] == null || (((User)Session["User"]).Level != 2 && ((User)Session["User"]).Id != user.Id))
             {
                 return RedirectToAction("Index", "Login");
             }
@@ -127,7 +127,7 @@ namespace ADOProject.Controllers
                 return HttpNotFound();
             }
 
-            if (Session["User"] == null || (((User)Session["User"]).Level != 2 || ((User)Session["User"]).Id != user.Id))
+            if (Session["User"] == null || (((User)Session["User"]).Level != 2 && ((User)Session["User"]).Id != user.Id))
             {
                 return RedirectToAction("Index", "Login");
             }
